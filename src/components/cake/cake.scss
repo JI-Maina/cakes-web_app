@@ -1,0 +1,44 @@
+.cake {
+    background: var(--mainWhite);
+    margin-bottom: 2rem;
+    box-shadow: var(--lightShadow);
+    transition: var(--mainTransition);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    border-radius: var(--mainBorderRadius);
+
+    &:hover {
+        box-shadow: var(--darkShadow);
+    }
+
+    img {
+        height: 20rem;
+        object-fit: cover;
+        border-top-left-radius: var(--mainBorderRadius);
+        border-top-right-radius: var(--mainBorderRadius);
+    }
+
+    .cake-footer {
+        padding: 1.5rem;
+
+        h3,
+        h4,
+        p {
+            margin-bottom: 0.3rem;
+        }
+    
+        h3 {
+            font-size: 2rem;
+        }
+    
+        p {
+            color: var(--darkGrey);
+            margin-bottom: 0.5rem;
+        }
+
+        .cake-btn {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
