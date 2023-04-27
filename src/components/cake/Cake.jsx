@@ -1,7 +1,7 @@
 import "./cake.scss";
 import { Link } from "react-router-dom";
 
-const Cake = ({ image, name, id, info, glass }) => {
+const Cake = ({ image, name, id, price }) => {
   return (
     <article className="cake">
       <div className="img-container">
@@ -9,21 +9,21 @@ const Cake = ({ image, name, id, info, glass }) => {
       </div>
       <div className="cake-footer">
         <h3>{name}</h3>
-        <h4>{glass}</h4>
-        <p>{info}</p>
+        {/* <h4>{price}</h4> */}
+        <p>{price}</p>
         <div className="cake-btn">
-          <Link
-            to={`/singlecake/${id}`}
-            className="btn btn-primary btn-details"
-          >
-            details
-          </Link>
           <Link
             to={`/singlecake/${id}`}
             className="btn btn-primary btn-details"
           >
             order now
           </Link>
+          {/* <Link
+            to={`/singlecake/${id}`}
+            className="btn btn-primary btn-details"
+          >
+            order now
+          </Link> */}
         </div>
       </div>
     </article>

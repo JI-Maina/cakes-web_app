@@ -1,6 +1,7 @@
 import "./searchform.scss";
 import { useGlobalContext } from "../../context";
 import { useEffect, useRef } from "react";
+// import searchicon from "../../images/searchicon.png";
 
 const SearchForm = () => {
   const { setSearchTerm } = useGlobalContext();
@@ -29,6 +30,16 @@ const SearchForm = () => {
             ref={searchValue}
             onChange={searchCake}
           />
+          {/* <hr />
+          <hr />
+          <input
+            placeholder="search for cake"
+            value={searchCake}
+            type="text"
+            id="name"
+            ref={searchValue}
+            onChange={searchCake}
+          /> */}
         </div>
       </form>
     </section>

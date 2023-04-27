@@ -1,0 +1,68 @@
+.cake-form {
+    display: flex;
+    height: 100vh;
+
+    .cake-form-left {
+        flex: 1;
+        padding: 3rem;
+
+        .cake {
+
+            .img-container {
+                border-radius: var(--mainBorderRadius);
+            }
+
+            .cake-footer {
+                p {
+                    font-weight: bold;
+                    text-transform: capitalize;
+                    line-height: 1.8;
+
+                    span {
+                        margin-right: 0.5rem;
+                    }
+
+                    .cake-data {
+                        background: var(--primaryLightColor);
+                        padding: 0.25rem 0.5rem;
+                        border-radius: var(--mainBorderRadius);
+                        color: var(--primaryColor);
+                    }
+                }
+            }
+        }
+    }
+
+    .cake-form-right {
+        flex: 2;
+        
+        form {
+            display: flex;
+            padding-top: 3rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: space-around;
+
+            .formInput {
+                width: 40%;
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    padding: 0.3rem;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 0.3rem;
+                    border: none;
+                    border-bottom: 1px solid gray;
+                }
+            }
+
+            button {
+                width: 15rem;
+            }
+        }
+    }
+}

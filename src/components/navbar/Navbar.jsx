@@ -1,13 +1,13 @@
 import "./navbar.scss";
 import { Link } from "react-router-dom";
-import logo from "../../images/logo.png";
+import Emma from "../../images/Emma.png";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-center">
         <Link to="/">
-          <img src={logo} alt="cakes " className="logo" />
+          <img src={Emma} alt="cakes " className="logo" />
         </Link>
 
         <ul className="nav-links">

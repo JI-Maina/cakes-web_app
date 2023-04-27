@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useCallback } from "react";
 
-const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+// const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+import { cakesList } from "./data";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
@@ -9,40 +10,50 @@ const AppProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState("a");
   const [cakes, setCakes] = useState([]);
 
-  const fetchCakes = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(`${url}${searchTerm}`);
-      const data = await response.json();
-
-      // destructure the object property
-      const { drinks } = data;
-      if (drinks) {
-        const newCakes = drinks.map((cake) => {
-          const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
-            cake;
-          return {
-            id: idDrink,
-            name: strDrink,
-            image: strDrinkThumb,
-            info: strAlcoholic,
-            glass: strGlass,
-          };
-        });
-        setCakes(newCakes);
-      } else {
-        setCakes([]);
-      }
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    fetchCakes();
+    setLoading(true);
+    const filteredCakes = cakesList.filter((cake) =>
+      cake.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setCakes(filteredCakes);
+    setLoading(false);
   }, [searchTerm]);
+
+  // const fetchCakes = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await fetch(`${url}${searchTerm}`);
+  //     const data = await response.json();
+
+  //     // destructure the object property
+  //     const { drinks } = data;
+  //     if (drinks) {
+  //       const newCakes = drinks.map((cake) => {
+  //         const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
+  //           cake;
+  //         return {
+  //           id: idDrink,
+  //           name: strDrink,
+  //           image: strDrinkThumb,
+  //           info: strAlcoholic,
+  //           glass: strGlass,
+  //         };
+  //       });
+  //       setCakes(newCakes);
+  //     } else {
+  //       setCakes([]);
+  //     }
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.log(error);
+  //     setLoading(false);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   setCakes(cakes);
+  //   // fetchCakes();
+  // }, [searchTerm]);
 
   return (
     <AppContext.Provider
