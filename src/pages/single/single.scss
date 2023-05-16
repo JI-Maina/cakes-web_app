@@ -1,12 +1,33 @@
+$mobile-breakpoint: 480px;
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1024px;
+
 .cake-form {
     display: flex;
     height: 100vh;
+
+    @media (max-width: $tablet-breakpoint) {
+        flex-direction: column;
+        height: auto;
+    }
 
     .cake-form-left {
         flex: 1;
         padding: 3rem;
 
+        @media (max-width: $tablet-breakpoint) {
+            width: 100%;
+            flex: 1;
+        }
+
         .cake {
+            background: var(--mainWhite);
+            margin-bottom: 2rem;
+            box-shadow: var(--lightShadow);
+            transition: var(--mainTransition);
+            display: grid;
+            grid-template-rows: auto 1fr;
+            border-radius: var(--mainBorderRadius);
 
             .img-container {
                 border-radius: var(--mainBorderRadius);
@@ -35,6 +56,11 @@
 
     .cake-form-right {
         flex: 2;
+
+        @media (max-width: $tablet-breakpoint) {
+            width: 100%;
+            flex: 1;
+        }
         
         form {
             display: flex;
@@ -43,13 +69,23 @@
             gap: 1.5rem;
             justify-content: space-around;
 
+            @media (max-width: $tablet-breakpoint) {
+                margin-bottom: 2rem;
+            }
+
             .formInput {
                 width: 40%;
+
+                @media (max-width: $tablet-breakpoint) {
+                    width: 90%;
+                    padding: 10px;
+                }
 
                 label {
                     display: flex;
                     align-items: center;
                     padding: 0.3rem;
+                    font-weight: 600;
                 }
 
                 input {
@@ -62,6 +98,10 @@
 
             button {
                 width: 15rem;
+
+                @media (max-width: $tablet-breakpoint) {
+                    height: 50px;
+                }
             }
         }
     }
